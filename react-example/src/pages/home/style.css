@@ -41,6 +41,8 @@
     font-size: 20px;
 }
 
+
+
 .main-wrapper__button {
     width: 100%;
     max-width: 654px;
@@ -58,12 +60,10 @@
 }
 
 .main-wrapper__list { 
+    margin-top: 10px;
     height: 270px;
     overflow-x: scroll;
     overflow-y: hidden;
-}
-
-.main-wrapper__list {
     display: flex;
     flex-direction: row;
 }

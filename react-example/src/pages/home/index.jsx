@@ -21,6 +21,7 @@ const Home = () => {
                     followers={item.followers}
                     following={item.following}
                     repoName={item.repoName}
+                    html_url={item.html_url}
                 />
         })
         
@@ -32,30 +33,32 @@ const Home = () => {
         }
 
         //button
+        
         async function RequestGit() {
-            if(!name || !repo){alert("O(s) se encontra(m) vazio(s)!!!")}
+            if(!name || !repo){alert("O(s) campo(s) se encontra(m) vazio(s)!!!")}
             
             const perfil = await axios(`https://api.github.com/users/${name}`);
             const repositorio = await axios(`https://api.github.com/users/${name}/repos`);
-         
+            
           
            let filteredRepo = repositorio.data.filter( (arr) => {
                return arr.name === repo
            })
-           console.log(perfil.data)
+           console.log(perfil)
 
             const newRepo = {
                 key: listGitHub.length,
                 avatar_url: perfil.data.avatar_url,
                 login: perfil.data.login,
                 name: perfil.data.name,
+                html_url: perfil.data.html_url,
                 location: perfil.data.location,
                 followers: perfil.data.followers,
                 following: perfil.data.following,
-                repoName: filteredRepo.[0],
+                repoName: filteredRepo[0],
             }
             
-            
+            console.log(listGitHub)
    
         setName("");
         setRepo("");
@@ -64,7 +67,7 @@ const Home = () => {
         });
     }
 
-   
+ 
     return(
         <div className="main">
             <div className="main-wrapper">
@@ -88,6 +91,7 @@ const Home = () => {
                     <button 
                         onClick={RequestGit} 
                         className="main-wrapper__button" 
+                        type="submit"
                     >
                         Adicionar
                     </button>

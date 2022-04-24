@@ -1,5 +1,5 @@
 import React from 'react';
-import './boxList.css'
+import './boxList.css';
 
 export default function BoxList(props) {
     return(
@@ -8,7 +8,7 @@ export default function BoxList(props) {
             <div className="li-header">
 
                 <div className="li-header__photo">
-                    <img src={props.avatar_url}></img>
+                    <img src={props.avatar_url} alt={props.name}></img>
                 </div>
 
                 <div className="li-header__second">
@@ -25,7 +25,7 @@ export default function BoxList(props) {
 
                         <svg 
                             xmlns="http://www.w3.org/2000/svg" 
-                            enable-background="new 0 0 24 24" 
+                            enableBackground="new 0 0 24 24" 
                             height="15px" 
                             viewBox="0 0 24 16" 
                             width="15px" 
@@ -51,7 +51,7 @@ export default function BoxList(props) {
                 </div>
             </div>
             <div className="li-footer">
-                <button ><span><a target="_blank" href={`https://github.com.br/${props.login}`}>repos github</a></span></button>  
+                <a target="_blank" href={props.html_url}>+ Repositórios</a> 
             </div> 
         </div>
     </li>
